@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPLICATION PAGE</title>
+    <style>
+        body{
+            background-image: url("https://th.bing.com/th/id/R.f9d8f13ec4e4a322a1c91ece457d13fb?rik=K8HEwlPSf4jaFQ&pid=ImgRaw&r=0");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container{
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px; 
+            display: flex;
+            flex-direction: column; 
+        }
+        .login-container h2{
+            text-align: center;
+            margin: 0 0 20px 0; 
+        }
+        .login-container input{
+            width: 100%; 
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        .login-container button{
+            width: 100%; 
+            padding: 10px;
+            margin: 10px 0; 
+            background-color: #b3e4eb;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>CBIT Application Form</h2>
+        <form action="/login" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="father_name" placeholder="Father's name" required>
+            <input type="text" name="mother_name" placeholder="Mother's name" required>
+            <input type="text" name="DOB" placeholder="DOB" required>
+            <input type="text" name="age" placeholder="Age" required>
+            <input type="text" name="username" placeholder="Gender" required>
+            <input type="text" name="gender" placeholder="Location" required>
+            <input type="text" name="nationality" placeholder="Nationality" required>
+            <input type="text" name="education" placeholder="Education" required>
+            <button type="submit">Apply</button>
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('dob').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDifference = today.getMonth() - dob.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            document.getElementById('age').value = age;
+        });
+    </script>
+</body>
+</html>
